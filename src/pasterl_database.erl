@@ -45,11 +45,5 @@ exists(Index) ->
 	end.
 
 rand_id() ->
-	Chars = lists:seq(48, 57) ++ lists:seq(65, 90) ++ lists:seq(97, 122),
-	Id = random_string(8, Chars),
-	list_to_binary(Id).
-
-random_string(Length, AllowedChars) ->
-	Fun = fun(_, Acc) -> [lists:nth(random:uniform(length(AllowedChars)), AllowedChars)] ++ Acc end,
-	lists:foldl(Fun, [], lists:seq(1, Length)).
-
+	Chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz",
+	list_to_binary([lists:nth(random:uniform(length(Chars)), Chars) || _ <- lists:seq(1, 8)]).
