@@ -1,0 +1,13 @@
+{application, pasterl, [
+	{description, "Just a stupid pastebin."},
+	{vsn, "1"},
+	{modules, []},
+	{registered, []},
+	{applications, [
+		kernel,
+		stdlib,
+		cowboy
+	]},
+	{mod, {pasterl_app, []}},
+	{env, []}
+]}.
